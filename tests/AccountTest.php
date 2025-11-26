@@ -21,5 +21,8 @@ class AccountTest extends TestCase
         $this->assertEquals(0.0, $this->account->getBalance());
     }
 
-    
+    public function testAccountIsLinkedToUser()
+    {
+        $this->assertSame($this->user, $this->account->getUser());
+    }
 }
