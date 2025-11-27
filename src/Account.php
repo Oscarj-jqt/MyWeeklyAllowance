@@ -5,6 +5,8 @@ namespace App;
 class Account
 {
     private float $balance = 0.0;
+
+    private array $expenses = [];
     private User $user;
 
     public function __construct(User $user)
@@ -33,5 +35,22 @@ class Account
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    // Enregistrement d'une dépense avec description et date
+    public function recordExpense(float $amount, string $description): void
+    {
+        $this->spend($amount);
+        $this->expenses[] = [
+            'amount' => $amount,
+            'description' => $description,
+            'date' => date('d-m-Y H:i:s')
+        ];
+    }
+
+    // Obtenir la liste des dépenses
+    public function getExpenses(): array
+    {
+        return $this->expenses;
     }
 }

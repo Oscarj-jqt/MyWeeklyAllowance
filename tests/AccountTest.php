@@ -33,4 +33,16 @@ class AccountTest extends TestCase
         $this->account->add(25.0);
         $this->assertEquals(25.0, $this->account->getBalance());
     }
+
+    public function testRecordExpenseDecreasesBalanceAndStoresExpense()
+    {
+        $this->account->add(50.0);
+        $this->account->recordExpense(12.0, "cinéma");
+        $this->assertEquals(38.0, $this->account->getBalance());
+
+        $expenses = $this->account->getExpenses();
+        $this->assertCount(1, $expenses);
+        $this->assertEquals(12.0, $expenses[0]['amount']);
+        $this->assertEquals("cinéma", $expenses[0]['description']);
+    }
 }
