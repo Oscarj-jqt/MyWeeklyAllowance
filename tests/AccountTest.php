@@ -10,7 +10,6 @@ class AccountTest extends TestCase
     private Account $account;
     private User $user;
 
-
     // Création d'un utilisateur et d'un compte avant chaque test
     protected function setUp(): void
     {
