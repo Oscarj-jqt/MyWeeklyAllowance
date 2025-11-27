@@ -7,6 +7,7 @@ class Account
     private float $balance = 0.0;
 
     private array $expenses = [];
+    private ?float $weeklyAllowance = null;
     private User $user;
 
     public function __construct(User $user)
@@ -52,5 +53,18 @@ class Account
     public function getExpenses(): array
     {
         return $this->expenses;
+    }
+
+    public function setWeeklyAllowance(float $amount): void
+    {
+        $this->weeklyAllowance = $amount;
+    }
+
+    // Somme hebdomadaire ajoutée au compte
+    public function applyWeeklyAllowance(): void
+    {
+        if ($this->weeklyAllowance !== null) {
+            $this->add($this->weeklyAllowance);
+        }
     }
 }

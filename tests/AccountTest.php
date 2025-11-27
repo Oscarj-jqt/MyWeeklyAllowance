@@ -34,6 +34,7 @@ class AccountTest extends TestCase
         $this->assertEquals(25.0, $this->account->getBalance());
     }
 
+    // Dépense d'argent du compte et enregistrement de la dépense
     public function testRecordExpenseDecreasesBalanceAndStoresExpense()
     {
         $this->account->add(50.0);
@@ -44,5 +45,15 @@ class AccountTest extends TestCase
         $this->assertCount(1, $expenses);
         $this->assertEquals(12.0, $expenses[0]['amount']);
         $this->assertEquals("cinéma", $expenses[0]['description']);
+    }
+
+    public function testWeeklyAllowanceIsAddedToBalance()
+    {
+        $this->account->setWeeklyAllowance(10.0);
+        $this->account->applyWeeklyAllowance();
+        $this->assertEquals(10.0, $this->account->getBalance());
+
+        $this->account->applyWeeklyAllowance();
+        $this->assertEquals(20.0, $this->account->getBalance());
     }
 }
