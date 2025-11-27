@@ -24,7 +24,7 @@ composer install
 1. Création de compte
 2. Dépôt d’argent
 3. Dépenses
-4. Sum hebdo 
+4. Somme hebdomadaire automatique
 
 ---
 
