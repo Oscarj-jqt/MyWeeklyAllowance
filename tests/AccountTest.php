@@ -10,6 +10,8 @@ class AccountTest extends TestCase
     private Account $account;
     private User $user;
 
+
+    // Création d'un utilisateur et d'un compte avant chaque test
     protected function setUp(): void
     {
         $this->user = new User("Jean", "Durand", "jean21", "jean@email.com");
@@ -24,5 +26,12 @@ class AccountTest extends TestCase
     public function testAccountIsLinkedToUser()
     {
         $this->assertSame($this->user, $this->account->getUser());
+    }
+
+    // Dépôt d'argent sur le compte
+    public function testAddMoneyIncreasesBalance()
+    {
+        $this->account->add(25.0);
+        $this->assertEquals(25.0, $this->account->getBalance());
     }
 }
