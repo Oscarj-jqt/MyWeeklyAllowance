@@ -41,3 +41,7 @@ composer dump-autoload
 ```sh
 php vendor/phpunit/phpunit/phpunit tests
 ```
+
+## Contributeur
+
+Oscar JACQUET
