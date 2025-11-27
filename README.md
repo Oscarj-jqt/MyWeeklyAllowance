@@ -1,12 +1,5 @@
 # Application de Gestion d’Argent de Poche (Méthode TDD)
 
-## Fonctionnalités
-
-- Création de compte ado
-- Dépôt d’argent
-- Enregistrement de dépenses
-- Somme hebdomadaire automatique
-
 ## Organisation projet
 
 - src/ : Code source 
